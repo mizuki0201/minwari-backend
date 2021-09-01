@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  db-data:
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - "db-data:/var/lib/mysql"
+    environment:
+      TZ: Asia/Tokyo
+      # MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "4306:3306"
+
+  backend:
+    build: .
+    ports:
+      - "3001:3000"
+    volumes:
+      - ".:/minwari-backend"
+    environment:
+      FRONTEND_ORIGIN: "http://localhost:3000"
+    tty: true
+    stdin_open: true
