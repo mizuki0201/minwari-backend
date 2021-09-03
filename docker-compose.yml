@@ -5,12 +5,14 @@ volumes:
 
 services:
   db:
+    container_name: minwari-backend_db_1
     image: mysql
     volumes:
       - "db-data:/var/lib/mysql"
     environment:
       TZ: Asia/Tokyo
       MYSQL_USER: root
+      MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
     ports:
       - "4306:3306"

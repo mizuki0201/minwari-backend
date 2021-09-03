@@ -1,2 +1,3 @@
-class Api::V1::Auth::SessionsController < ApplicationController
+class Api::V1::Auth::SessionsController < DeviseTokenAuth::SessionsController
+  
 end
