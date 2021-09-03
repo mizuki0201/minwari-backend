@@ -1,4 +1,5 @@
 class Api::V1::ExpencesController < ApplicationController
+  before_action :find_expence, only: [:update, :destroy] 
 
   def index
     event = Event.find(params[:event_id])

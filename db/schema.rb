@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_113503) do
+ActiveRecord::Schema.define(version: 2021_09_03_121027) do
+
+  create_table "debts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "price", null: false
+    t.bigint "from_id"
+    t.bigint "to_id"
+    t.bigint "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_debts_on_event_id"
+    t.index ["from_id"], name: "index_debts_on_from_id"
+    t.index ["to_id"], name: "index_debts_on_to_id"
+  end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "title", null: false
@@ -74,6 +86,9 @@ ActiveRecord::Schema.define(version: 2021_09_03_113503) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "debts", "events"
+  add_foreign_key "debts", "users", column: "from_id"
+  add_foreign_key "debts", "users", column: "to_id"
   add_foreign_key "events", "groups"
   add_foreign_key "expences", "events"
   add_foreign_key "expences", "users"
