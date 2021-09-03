@@ -1,7 +1,8 @@
 class Api::V1::EventsController < ApplicationController
 
   def index
-    events = Event.all
+    group = Group.find(params[:group_id])
+    events = group.events
     render json: events
   end
 

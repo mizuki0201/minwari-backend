@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_094715) do
+ActiveRecord::Schema.define(version: 2021_09_03_113503) do
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "title", null: false
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2021_09_03_094715) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_events_on_group_id"
+  end
+
+  create_table "expences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.integer "price", null: false
+    t.bigint "event_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_expences_on_event_id"
+    t.index ["user_id"], name: "index_expences_on_user_id"
   end
 
   create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -63,6 +75,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_094715) do
   end
 
   add_foreign_key "events", "groups"
+  add_foreign_key "expences", "events"
+  add_foreign_key "expences", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
 end

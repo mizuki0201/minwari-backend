@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       }
 
       resources :groups, only: [:index, :create, :update, :destroy] do
-        resources :events, only: [:index, :create, :update, :destroy]
+        resources :events, only: [:index, :create, :update, :destroy] do
+          resources :expences, only: [:index, :create, :update, :destroy]
+        end
       end
     end
   end
