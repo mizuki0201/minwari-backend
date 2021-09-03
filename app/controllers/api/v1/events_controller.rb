@@ -1,4 +1,5 @@
 class Api::V1::EventsController < ApplicationController
+  before_action :find_event, only: [:update, :destroy] 
 
   def index
     group = Group.find(params[:group_id])
