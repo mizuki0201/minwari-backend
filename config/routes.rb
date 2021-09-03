@@ -16,6 +16,9 @@ Rails.application.routes.draw do
           resources :debts, only: [:create, :update, :destroy]
         end
       end
+
+      resources :friends, only: [:create, :destroy]
+      resources :friend_requests, only: [:create, :destroy]
     end
   end
 end
