@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         token_validations:  'api/v1/auth/token_validations'
       }
 
+      resources :groups, only: [:index, :create, :update, :destroy]
     end
   end
 end
