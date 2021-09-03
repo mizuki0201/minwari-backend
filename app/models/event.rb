@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-  has_many :groups
+  belongs_to :group
+  has_many :expences
 
   validates :title, :date, presence: true
 end
