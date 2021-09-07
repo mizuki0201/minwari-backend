@@ -3,10 +3,13 @@ class Api::V1::GroupsController < ApplicationController
   before_action :find_group, only: [:update, :destroy] 
 
   def index
-    # current_api_v1_user
-    # binding.pry
-    groups = Group.all
-    render json: groups
+    groups = current_api_v1_user.groups
+    group_with_members = []
+    groups.each do |group|
+      member = group.users.select('id', 'name')
+      group_with_members << {id: group.id, name: group.name, members: member}
+    end
+    render json: group_with_members
   end
 
   def create
