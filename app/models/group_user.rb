@@ -1,2 +1,3 @@
 class GroupUser < ApplicationRecord
+  
 end
