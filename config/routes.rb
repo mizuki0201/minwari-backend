@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         sessions: 'api/v1/auth/sessions',
         passwords: 'api/v1/auth/passwords',
         token_validations:  'api/v1/auth/token_validations'
+        # groups: 'api/v1/groups'
       }
 
       resources :groups, only: [:index, :create, :update, :destroy] do

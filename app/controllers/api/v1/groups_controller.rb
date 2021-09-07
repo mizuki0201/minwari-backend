@@ -1,7 +1,10 @@
 class Api::V1::GroupsController < ApplicationController
+  before_action :authenticate_api_v1_user!
   before_action :find_group, only: [:update, :destroy] 
 
   def index
+    # current_api_v1_user
+    # binding.pry
     groups = Group.all
     render json: groups
   end
@@ -9,7 +12,7 @@ class Api::V1::GroupsController < ApplicationController
   def create
     group = Group.new(group_params)
     if group.save
-      # group.user << current_user
+      group.users << current_api_v1_user
       render json: group
     else
       render json: group.errors
