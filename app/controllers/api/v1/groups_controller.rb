@@ -7,7 +7,7 @@ class Api::V1::GroupsController < ApplicationController
     group_with_members = []
     groups.each do |group|
       member = group.users.select('id', 'name')
-      group_with_members << {id: group.id, name: group.name, menber: member}
+      group_with_members << {id: group.id, name: group.name, members: member}
     end
     render json: group_with_members
   end
