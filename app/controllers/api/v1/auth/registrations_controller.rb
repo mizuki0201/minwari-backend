@@ -2,7 +2,7 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
   def create
     user = User.new(sign_up_params)
     if user.save
-      render json: {status: 200}
+      render json: {status: 200, user: user}
     else
       render json: {status: 301}
     end
