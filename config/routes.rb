@@ -19,8 +19,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :friends, only: [:create, :destroy]
-      resources :friend_requests, only: [:create, :destroy]
+      resources :friends, only: [:index, :create, :destroy]
     end
   end
 end

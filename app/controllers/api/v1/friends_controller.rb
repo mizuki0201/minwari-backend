@@ -1,10 +1,15 @@
 class Api::V1::FriendsController < ApplicationController
+  def index
+  end
+
   def create
-    friend = Friend.new(friend_params)
-    if friend.save
-      render json: friend
+    friend = Friend.find_or_initialize_by(friend_params)
+    if !friend.new_record?
+      render json: {status: 302}
+    elsif friend.save
+      render json: {status: 200}
     else
-      render json: friend.errors
+      render json: {status: 301}
     end
   end
 
@@ -16,6 +21,6 @@ class Api::V1::FriendsController < ApplicationController
 
   private
   def friend_params
-    params.require(:friend).permit(:from_id, :to_id)
+    params.require(:friend).permit(:to_id).merge(from_id: current_api_v1_user.id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_133159) do
+ActiveRecord::Schema.define(version: 2021_09_03_133143) do
 
   create_table "debts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "price", null: false
@@ -44,15 +44,6 @@ ActiveRecord::Schema.define(version: 2021_09_03_133159) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_expences_on_event_id"
     t.index ["user_id"], name: "index_expences_on_user_id"
-  end
-
-  create_table "friend_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.bigint "from_id"
-    t.bigint "to_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["from_id"], name: "index_friend_requests_on_from_id"
-    t.index ["to_id"], name: "index_friend_requests_on_to_id"
   end
 
   create_table "friends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -110,8 +101,6 @@ ActiveRecord::Schema.define(version: 2021_09_03_133159) do
   add_foreign_key "events", "groups"
   add_foreign_key "expences", "events"
   add_foreign_key "expences", "users"
-  add_foreign_key "friend_requests", "users", column: "from_id"
-  add_foreign_key "friend_requests", "users", column: "to_id"
   add_foreign_key "friends", "users", column: "from_id"
   add_foreign_key "friends", "users", column: "to_id"
   add_foreign_key "group_users", "groups"

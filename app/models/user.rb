@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
   has_many :groups, through: :group_users
   has_many :expences
   has_many :friends
-  has_many :friend_requests
 end
