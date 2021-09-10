@@ -1,11 +1,18 @@
 class Api::V1::FriendRequestsController < ApplicationController
+  before_action :authenticate_api_v1_user!
+
   def create
-    friend_request = FriendRequest.new(friend_request_params)
-    if friend_request.save
-      render json: friend_request
+    friend_request = FriendRequest.find_or_initialize_by(friend_request_params)
+    if friend_request.new_record?
+      if friend_request.save
+        render json: {status: 200}
+      else
+        render json: {status: 301}
+      end
     else
-      render json: friend_request.errors
+      render json: {status: 302}
     end
+
   end
 
   def destroy
@@ -15,6 +22,6 @@ class Api::V1::FriendRequestsController < ApplicationController
 
   private
   def friend_request_params
-    params.require(:friend_request).permit(:from_id, :to_id)
+    params.require(:friend_request).permit(:to_id).merge(from_id: current_api_v1_user.id)
   end
 end
