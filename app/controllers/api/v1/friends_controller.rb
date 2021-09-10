@@ -6,12 +6,12 @@ class Api::V1::FriendsController < ApplicationController
     friends = []
     friends_from.each do |friend|
       user_from = User.find(friend[:to_id])
-      friends << {user_id: user_from.user_id, name: user_from.name}
+      friends << {id: user_from.id, user_id: user_from.user_id, name: user_from.name}
     end
     
     friends_to.each do |friend|
       user_to = User.find(friend[:from_id])
-      friends << {user_id: user_to.user_id, name: user_to.name}
+      friends << {id: user_to.id, user_id: user_to.user_id, name: user_to.name}
     end
     
     render json: friends

@@ -6,8 +6,8 @@ class Api::V1::GroupsController < ApplicationController
     groups = current_api_v1_user.groups
     group_with_members = []
     groups.each do |group|
-      member = group.users.select('id', 'name')
-      group_with_members << {id: group.id, name: group.name, members: member}
+      members = group.users.select('id', 'name')
+      group_with_members << {id: group.id, name: group.name, members: members}
     end
     render json: group_with_members
   end
@@ -16,7 +16,8 @@ class Api::V1::GroupsController < ApplicationController
     group = Group.new(group_params)
     if group.save
       group.users << current_api_v1_user
-      render json: group
+      group_with_members = {id: group.id, name: group.name, members: group.users.select(:id, :name)}
+      render json: group_with_members
     else
       render json: group.errors
     end
@@ -36,7 +37,7 @@ class Api::V1::GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, user_ids: [])
   end
 
   def find_group
