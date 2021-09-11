@@ -1,4 +1,6 @@
 class Api::V1::FriendsController < ApplicationController
+  before_action :authenticate_api_v1_user!
+  
   def index
     friends_from = Friend.where(from_id: current_api_v1_user)
     friends_to = Friend.where(to_id: current_api_v1_user)

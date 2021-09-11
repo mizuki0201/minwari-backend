@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many :expences
   has_many :debts
 
-  validates :title, :date, presence: true
+  validates :title, presence: true
 end
