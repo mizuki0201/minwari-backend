@@ -4,8 +4,9 @@ class Api::V1::ExpencesController < ApplicationController
 
   def index
     event = Event.find(params[:event_id])
+    members = event.group.users.select('id', 'name')
     expences = event.expences
-    render json: {event: event, expences: expences}
+    render json: {event: event, expences: expences, members: members}
   end
 
   def create
