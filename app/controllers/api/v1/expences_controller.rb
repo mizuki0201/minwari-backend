@@ -1,10 +1,11 @@
 class Api::V1::ExpencesController < ApplicationController
+  before_action :authenticate_api_v1_user!
   before_action :find_expence, only: [:update, :destroy] 
 
   def index
     event = Event.find(params[:event_id])
     expences = event.expences
-    render json: expences
+    render json: {event: event, expences: expences}
   end
 
   def create
