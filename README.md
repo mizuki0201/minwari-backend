@@ -1,24 +1,22 @@
-# README
+# みんわり（技術選定・実装振り返り編）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+アプリ解説編は[こちら](https://github.com/mizuki0201/minwari-frontend)。
 
-Things you may want to cover:
+## アプリについて
 
-* Ruby version
+### アプリ概要
 
-* System dependencies
+本アプリは、友達とグループを作り、その中で割り勘ができるアプリです。
+グループを作り、そのメンバーで出かけたりした際の支払管理を行うことができます。
+また、グループ内でイベントを複数作成できるため、たくさん遊んだりするメンバーでグループを作れば、「次回多めに払ってくれればいいよ〜」といったように、割り勘して支払いが発生した分を次回出かける際などに繰り越すこともできます。
 
-* Configuration
+### URL
 
-* Database creation
+〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 
-* Database initialization
+### テスト用アカウント
 
-* How to run the test suite
+email：
+password：
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+以下、現在作成中
