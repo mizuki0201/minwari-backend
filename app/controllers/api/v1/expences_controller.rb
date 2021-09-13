@@ -5,14 +5,16 @@ class Api::V1::ExpencesController < ApplicationController
   def index
     event = Event.find(params[:event_id])
     members = event.group.users.select('id', 'name')
-    expences = event.expences
+    expences = event.expences.map do |expence|
+      add_username_to_expence(expence)
+    end
     render json: {event: event, expences: expences, members: members}
   end
 
   def create
     expence = Expence.new(expence_params)
     if expence.save
-      render json: expence
+      render json: add_username_to_expence(expence)
     else
       render json: expence.errors
     end
@@ -20,7 +22,7 @@ class Api::V1::ExpencesController < ApplicationController
 
   def update
     if @expence.update(expence_params)
-      render json: @expence
+      render json: add_username_to_expence(@expence)
     else
       render json: @expence.errors
     end
@@ -41,5 +43,11 @@ class Api::V1::ExpencesController < ApplicationController
 
   def find_expence
     @expence = Expence.find(params[:id])
+  end
+
+  def add_username_to_expence(expence)
+    new_expence = expence.attributes
+    new_expence['user_name'] = User.find(expence.user_id).attributes['name']
+    return new_expence
   end
 end
