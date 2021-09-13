@@ -27,8 +27,11 @@ class Api::V1::ExpencesController < ApplicationController
   end
 
   def destroy
-    @expence.destroy
-    render json: @expence
+    if @expence.destroy
+      render json: {status: 200}
+    else
+      render json: {status: 301}
+    end
   end
 
   private
