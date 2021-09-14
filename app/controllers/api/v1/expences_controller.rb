@@ -12,11 +12,12 @@ class Api::V1::ExpencesController < ApplicationController
   end
 
   def create
-    expence = Expence.new(expence_params)
-    if expence.save
-      render json: add_username_to_expence(expence)
+    expence_debt = ExpenceDebtForm.new(expence_params)
+    if expence_debt.save
+      render json: expence_debt
+      # render json: add_username_to_expence(expence_debt)
     else
-      render json: expence.errors
+      expence_debt json: expence_debt.errors
     end
   end
 
@@ -38,7 +39,9 @@ class Api::V1::ExpencesController < ApplicationController
 
   private
   def expence_params
-    params.require(:expence).permit(:title, :description, :price, :event_id, :user_id)
+    params
+      .require(:expence)
+      .permit(:title, :description, :price, :event_id, :user_id, :group_id, :members)
   end
 
   def find_expence

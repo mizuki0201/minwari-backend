@@ -16,11 +16,15 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
     t.integer "price", null: false
     t.bigint "from_id"
     t.bigint "to_id"
+    t.bigint "group_id"
     t.bigint "event_id"
+    t.bigint "expence_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_debts_on_event_id"
+    t.index ["expence_id"], name: "index_debts_on_expence_id"
     t.index ["from_id"], name: "index_debts_on_from_id"
+    t.index ["group_id"], name: "index_debts_on_group_id"
     t.index ["to_id"], name: "index_debts_on_to_id"
   end
 
@@ -95,6 +99,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
   end
 
   add_foreign_key "debts", "events"
+  add_foreign_key "debts", "expences"
+  add_foreign_key "debts", "groups"
   add_foreign_key "debts", "users", column: "from_id"
   add_foreign_key "debts", "users", column: "to_id"
   add_foreign_key "events", "groups"
