@@ -8,14 +8,17 @@ class Api::V1::ExpencesController < ApplicationController
     expences = event.expences.map do |expence|
       add_username_to_expence(expence)
     end
-    render json: {event: event, expences: expences, members: members}
+    debts = Debt.where(event_id: params[:event_id])
+    render json: {event: event, expences: expences, members: members, debts: debts}
   end
 
   def create
-    expence_debt = ExpenceDebtForm.new(expence_params)
-    if expence_debt.save
-      render json: expence_debt
-      # render json: add_username_to_expence(expence_debt)
+    expence_debt_form = ExpenceDebtForm.new(expence_params)
+
+    if expence_debt_form.valid? 
+      expence_debt = expence_debt_form.save
+      expence_with_user = add_username_to_expence(expence_debt[:expence])
+      render json: { expence: expence_with_user, debts: expence_debt[:debts] }
     else
       expence_debt json: expence_debt.errors
     end
@@ -41,7 +44,7 @@ class Api::V1::ExpencesController < ApplicationController
   def expence_params
     params
       .require(:expence)
-      .permit(:title, :description, :price, :event_id, :user_id, :group_id, :members)
+      .permit(:title, :description, :price, :event_id, :user_id, :group_id)
   end
 
   def find_expence
