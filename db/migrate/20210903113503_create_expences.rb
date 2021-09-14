@@ -4,6 +4,7 @@ class CreateExpences < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.text :description
       t.integer :price, null: false
+      t.references :group, null: false, foreign_key: true
       t.references :event, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.timestamps

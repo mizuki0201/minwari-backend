@@ -11,6 +11,7 @@ class ExpenceDebtForm
         title: title,
         description: description,
         price: price,
+        group_id: group_id,
         event_id: event_id,
         user_id: user_id
       })

@@ -24,13 +24,14 @@ class Api::V1::ExpencesController < ApplicationController
     end
   end
 
-  def update
-    if @expence.update(expence_params)
-      render json: add_username_to_expence(@expence)
-    else
-      render json: @expence.errors
-    end
-  end
+  # 更新機能は今後実装予定
+  # def update
+  #   if @expence.update(expence_params)
+  #     render json: add_username_to_expence(@expence)
+  #   else
+  #     render json: @expence.errors
+  #   end
+  # end
 
   def destroy
     if @expence.destroy
