@@ -11,15 +11,15 @@ Rails.application.routes.draw do
       }
 
       resources :users, only: [:index]
+      resources :friends, only: [:index, :create, :destroy]
 
       resources :groups, only: [:index, :create, :update, :destroy] do
         resources :events, only: [:index, :create, :update, :destroy] do
           resources :expences, only: [:index, :create, :update, :destroy]
-          resources :debts, only: [:create, :update, :destroy]
         end
       end
 
-      resources :friends, only: [:index, :create, :destroy]
+      delete 'debts', to: 'debts#custom_delete'
     end
   end
 end
