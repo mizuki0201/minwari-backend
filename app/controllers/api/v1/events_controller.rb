@@ -8,15 +8,13 @@ class Api::V1::EventsController < ApplicationController
     group_with_members = {id: group.id, name: group.name, members: members}
 
     events = group.events
-
     debts = group.debts
-    expences = group.expences
+
     render json: { 
       group: group_with_members,
       events: events, 
       debts: debts, 
-      members: members, 
-      expences: expences 
+      members: members
     }
   end
 
