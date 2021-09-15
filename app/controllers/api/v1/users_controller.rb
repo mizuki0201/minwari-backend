@@ -16,12 +16,14 @@ class Api::V1::UsersController < ApplicationController
     }
     user = SearchService.search_one_result(ele)
 
-    if already_friend(user.id)
+    if !user
+      render json: { status: 302, data: {} }
+    elsif already_friend(user.id)
       render json: { status: 301, data: {id: user.id, name: user.name} }
-    elsif user && user.id != current_api_v1_user.id
+    elsif user.id != current_api_v1_user.id
       render json: { status: 200, data: {id: user.id, name: user.name} }
     else
-      render json: { status: 404, data: {} }
+      render json: { status: 302, data: {} }
     end
   end
 
