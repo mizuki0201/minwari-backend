@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
 
   with_options presence: true do
     validates :name, :user_id
-    # validates :password  # なぜかパスワードにバリデーションをかけるとエラーが出る
+    # validates :password  # なぜかパスワードにバリデーションをかけるとエラーが出るので、devise token authにデフォルトであるバリデーションを使用
     validates :email, format: { with: VALID_EMAIL_REGEX }
-    validates :phone, uniqueness: { case_sensitive: true }
+    validates :phone, :user_id, uniqueness: { case_sensitive: true }
   end
 end
