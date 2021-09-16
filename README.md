@@ -21,6 +21,8 @@ password：
 
 ## 技術選定
 
+### 使用技術一覧
+
 <div width='100%' display='flex' align='center' justify-content='space-around'>
   <img width="120px" alt="react" src="https://user-images.githubusercontent.com/69416789/133558816-9e7cee6b-46d3-460e-90bc-da2b97edcb8c.png">&emsp; 
   <img width="80px" alt="Typescript" src="https://user-images.githubusercontent.com/69416789/133558873-3359dbc4-5ae0-4477-8a58-d7d7a07bafe7.png">&emsp;
@@ -32,8 +34,6 @@ password：
   <img width="150px" alt="TravisCI" src="https://user-images.githubusercontent.com/69416789/133559162-de36673e-8aab-4595-8371-27c0ea6c6f09.png">&emsp;
   <img width="150px" alt="Heroku" src="https://user-images.githubusercontent.com/69416789/133559166-b9afceb8-9a95-49af-99ed-bcbf237f60bb.png">
 </div>
-
-### 使用技術一覧
 
 ### 技術選定の理由 ①React
 
