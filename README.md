@@ -21,7 +21,7 @@ password：
 
 ## 技術選定
 
-<img width="200px" alt="react" src="https://user-images.githubusercontent.com/69416789/133558816-9e7cee6b-46d3-460e-90bc-da2b97edcb8c.png">  
+<img width="200px" alt="react" display='inline-block' src="https://user-images.githubusercontent.com/69416789/133558816-9e7cee6b-46d3-460e-90bc-da2b97edcb8c.png">  
 <img width="200px" alt="Typescript" src="https://user-images.githubusercontent.com/69416789/133558873-3359dbc4-5ae0-4477-8a58-d7d7a07bafe7.png">  
 <img width="200px" alt="chakraUI" src="https://user-images.githubusercontent.com/69416789/133559047-33178b3f-b1eb-4f58-9e1a-78578bc36aaa.png">  
 <img width="200px" alt="rails_logo" src="https://user-images.githubusercontent.com/69416789/133559112-c0ffdb11-9b81-4c60-9e93-ba04085ab216.png">  
