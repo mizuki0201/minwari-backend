@@ -21,13 +21,13 @@ password：
 
 ## 技術選定
 
-<img width="400px" alt="react" src="https://user-images.githubusercontent.com/69416789/133558816-9e7cee6b-46d3-460e-90bc-da2b97edcb8c.png">  
-<img width="500px" alt="Typescript" src="https://user-images.githubusercontent.com/69416789/133558873-3359dbc4-5ae0-4477-8a58-d7d7a07bafe7.png">  
-<img width="300px" alt="chakraUI" src="https://user-images.githubusercontent.com/69416789/133559047-33178b3f-b1eb-4f58-9e1a-78578bc36aaa.png">  
-![rails_logo](https://user-images.githubusercontent.com/69416789/133559112-c0ffdb11-9b81-4c60-9e93-ba04085ab216.png)
-![docker](https://user-images.githubusercontent.com/69416789/133559125-3e40743f-fea8-4b23-8bd3-f3349949a24d.png)
-![TravisCI](https://user-images.githubusercontent.com/69416789/133559162-de36673e-8aab-4595-8371-27c0ea6c6f09.png)
-![Heroku](https://user-images.githubusercontent.com/69416789/133559166-b9afceb8-9a95-49af-99ed-bcbf237f60bb.png)
+<img width="200px" alt="react" src="https://user-images.githubusercontent.com/69416789/133558816-9e7cee6b-46d3-460e-90bc-da2b97edcb8c.png">  
+<img width="200px" alt="Typescript" src="https://user-images.githubusercontent.com/69416789/133558873-3359dbc4-5ae0-4477-8a58-d7d7a07bafe7.png">  
+<img width="200px" alt="chakraUI" src="https://user-images.githubusercontent.com/69416789/133559047-33178b3f-b1eb-4f58-9e1a-78578bc36aaa.png">  
+<img width="200px" alt="rails_logo" src="https://user-images.githubusercontent.com/69416789/133559112-c0ffdb11-9b81-4c60-9e93-ba04085ab216.png">  
+<img width="200px" alt="docker" src="https://user-images.githubusercontent.com/69416789/133559125-3e40743f-fea8-4b23-8bd3-f3349949a24d.png">  
+<img width="200px" alt="TravisCI" src="https://user-images.githubusercontent.com/69416789/133559162-de36673e-8aab-4595-8371-27c0ea6c6f09.png">  
+<img width="200px" alt="Heroku" src="https://user-images.githubusercontent.com/69416789/133559166-b9afceb8-9a95-49af-99ed-bcbf237f60bb.png">
 
 ### 使用技術一覧
 
