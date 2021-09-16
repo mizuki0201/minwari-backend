@@ -21,7 +21,7 @@ password：
 
 ## 技術選定
 
-<div display='flex' align-items='center' justify-content='center'>
+<div width='100%' display='flex' align-items='center' justify-content='center'>
   <img width="200px" alt="react" src="https://user-images.githubusercontent.com/69416789/133558816-9e7cee6b-46d3-460e-90bc-da2b97edcb8c.png">  
   <img width="200px" alt="Typescript" src="https://user-images.githubusercontent.com/69416789/133558873-3359dbc4-5ae0-4477-8a58-d7d7a07bafe7.png">  
   <img width="200px" alt="chakraUI" src="https://user-images.githubusercontent.com/69416789/133559047-33178b3f-b1eb-4f58-9e1a-78578bc36aaa.png">
