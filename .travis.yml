@@ -4,9 +4,19 @@ services: docker
 
 before_install:
   - docker-compose up --build -d
+  - docker login -u "$HEROKU_USERNAME" -p "$HEROKU_API_KEY" registry.heroku.com
 
 script:
   - docker-compose exec --env 'RAILS_ENV=test' backend bundle install
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:create
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:migrate
   - docker-compose exec --env 'RAILS_ENV=test' backend bundle exec rspec
+
+deploy:
+  provider: script
+  script:
+    docker build -t registry.heroku.com/$HEROKU_APP_NAME/backend -f Dockerfile.prod .;
+    docker push registry.heroku.com/$HEROKU_APP_NAME/backend;
+    heroku run --app $HEROKU_APP_NAME rails db:migrate;
+  on:
+    branch: master
