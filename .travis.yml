@@ -8,7 +8,7 @@ before_install:
   - docker-compose up --build -d
 
 script:
-  - mysql_config --socket
+  - docker-compose ps
   - docker-compose exec --env 'RAILS_ENV=test' backend bundle install
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:create
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:migrate
