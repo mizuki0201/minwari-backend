@@ -29,8 +29,6 @@ test:
   database: minwari_backend_test
   username: travis
   password:
-  host: 127.0.0.1
-  socket: /var/run/mysqld/mysqld.sock
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

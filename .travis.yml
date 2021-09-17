@@ -9,6 +9,7 @@ before_install:
 
 script:
   - docker-compose ps
+  - docker-compose logs
   - docker-compose exec --env 'RAILS_ENV=test' backend bundle install
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:create
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:migrate
