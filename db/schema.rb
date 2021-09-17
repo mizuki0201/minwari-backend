@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_09_03_133143) do
 
-  create_table "debts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "debts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "price", null: false
     t.bigint "from_id"
     t.bigint "to_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
     t.index ["to_id"], name: "index_debts_on_to_id"
   end
 
-  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
     t.bigint "group_id", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
     t.index ["group_id"], name: "index_events_on_group_id"
   end
 
-  create_table "expences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "expences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
     t.integer "price", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
     t.index ["user_id"], name: "index_expences_on_user_id"
   end
 
-  create_table "friends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "friends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "from_id"
     t.bigint "to_id"
     t.datetime "created_at", precision: 6, null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
     t.index ["to_id"], name: "index_friends_on_to_id"
   end
 
-  create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "group_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(version: 2021_09_03_133143) do
     t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
-  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
