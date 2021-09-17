@@ -11,4 +11,3 @@ script:
   - docker-compose exec --env 'RAILS_ENV=test' backend bundle install
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:create
   - docker-compose exec --env 'RAILS_ENV=test' backend rails db:migrate
-  - docker-compose exec --env 'RAILS_ENV=test' backend rails test
