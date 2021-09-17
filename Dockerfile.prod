@@ -13,4 +13,7 @@ COPY ./Gemfile /minwari-backend/
 RUN bundle install
 
 COPY . .
+
+RUN bundle install
+
 CMD ['rails', 's']
