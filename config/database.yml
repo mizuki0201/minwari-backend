@@ -45,6 +45,8 @@ test:
   # You can use this database configuration with:
   #
 production:
+  <<: *default
+  database: minwari_backend_production
   url: <%= ENV['CLEARDB_DATABASE_URL'] %>
 #
 # production:
