@@ -10,8 +10,6 @@ RUN set -x && apt-get update -qq && \
 WORKDIR /minwari-backend/
 COPY ./Gemfile /minwari-backend/
 
-RUN bundle install
-
 COPY . .
 
 RUN bundle install
