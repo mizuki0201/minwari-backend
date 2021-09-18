@@ -12,7 +12,7 @@
 
 ### URL
 
-〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+[https://minwari.netlify.app/](https://minwari.netlify.app/)
 
 ### テスト用アカウント
 
