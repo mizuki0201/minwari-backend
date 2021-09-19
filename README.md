@@ -16,8 +16,8 @@
 
 ### テスト用アカウント
 
-email：  
-password：
+email：test@gmail.com  
+password：password
 
 ## 技術選定
 
