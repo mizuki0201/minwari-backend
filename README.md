@@ -36,10 +36,11 @@ password：password
   <img width="150px" alt="Heroku" src="https://user-images.githubusercontent.com/69416789/133559166-b9afceb8-9a95-49af-99ed-bcbf237f60bb.png">
 </div>
 
-### 技術選定の理由 ①React
+### 技術選定の理由 ①React × TypeScript
 
 近年流行りの SPA でのアプリ開発を行いたいと考え、JavaScript と TypeScript の学習を行った上で、React にて実装しました。  
-また、React や Vue.js などの JavaScript フレームワークを採用している企業も多く、そこに向けての学習も兼ねて React を選定しました。
+また、React や Vue.js などの JavaScript フレームワークを採用している企業も多く、そこに向けての学習も兼ねて React を選定しました。  
+React を使用するにあたり、最近ではほぼ必須となりつつある TypeScript も使用し、よりバグが少ないコードを目指しました。
 
 ### 技術選定の理由 ②Ruby on Rails
 
