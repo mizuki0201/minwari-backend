@@ -18,11 +18,29 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Name can't be blank")
       end
+      
+      it '名前が50文字より多いと登録できないこと' do
+        @user.name = 'あ' * 51
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Name is too long (maximum is 50 characters)")
+      end
 
       it 'ユーザーIDがないと登録できないこと' do
         @user.user_id = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("User can't be blank")
+      end
+      
+      it 'ユーザーIDが3文字以下だと登録できないこと' do
+        @user.user_id = 'ab1'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("User is invalid")
+      end
+      
+      it 'ユーザーIDが全角文字だと登録できないこと' do
+        @user.user_id = 'あいう'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("User is invalid")
       end
 
       it 'ユーザーIDが重複していると登録できないこと' do

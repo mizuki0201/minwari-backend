@@ -14,10 +14,12 @@ class User < ActiveRecord::Base
   has_many :friends
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+{4,}\z/i
+  # VALID_PASSWORD_REGEX = /\A[a-z0-9]+{6,}\z/i
+  VALID_USERID_REGEX = /\A[a-zA-Z0-9]+{4,}\z/
 
   with_options presence: true do
-    validates :name, :user_id
+    validates :name, length: { maximum: 50 }
+    validates :user_id, format: { with: VALID_USERID_REGEX }
     # validates :password  # なぜかパスワードにバリデーションをかけるとエラーが出るので、devise token authにデフォルトであるバリデーションを使用
     validates :email, format: { with: VALID_EMAIL_REGEX }
     validates :phone, :user_id, uniqueness: { case_sensitive: true }

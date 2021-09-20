@@ -18,6 +18,12 @@ RSpec.describe Group, type: :model do
         @group.valid?
         expect(@group.errors.full_messages).to include("Name can't be blank")
       end
+      
+      it 'グループ名が50文字より多いと登録できないこと' do        
+        @group.name = 'あ' * 51
+        @group.valid?
+        expect(@group.errors.full_messages).to include("Name is too long (maximum is 50 characters)")
+      end
     end
   
   end

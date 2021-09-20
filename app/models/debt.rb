@@ -5,5 +5,5 @@ class Debt < ApplicationRecord
   belongs_to :event
   belongs_to :expence
 
-  validates :price, numericality: true
+  validates :price, numericality: { greater_than: 0 }
 end

@@ -23,6 +23,18 @@ RSpec.describe Event, type: :model do
         @event.valid?
         expect(@event.errors.full_messages).to include("Title can't be blank")
       end
+      
+      it 'イベント名が50文字より多いと登録できないこと' do
+        @event.title = 'あ' * 51
+        @event.valid?
+        expect(@event.errors.full_messages).to include("Title is too long (maximum is 50 characters)")
+      end
+      
+      it 'イベント詳細が100文字より多いと登録できないこと' do
+        @event.description = 'あ' * 101
+        @event.valid?
+        expect(@event.errors.full_messages).to include("Description is too long (maximum is 100 characters)")
+      end
     end
   end
 end

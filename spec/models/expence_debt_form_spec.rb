@@ -23,6 +23,12 @@ RSpec.describe ExpenceDebtForm, type: :model do
         @expence_debt_form.valid?
         expect(@expence_debt_form.errors.full_messages).to include("Title can't be blank")
       end
+      
+      it '支出名が50文字より多いと登録できないこと' do
+        @expence_debt_form.title = 'あ' * 51
+        @expence_debt_form.valid?
+        expect(@expence_debt_form.errors.full_messages).to include("Title is too long (maximum is 50 characters)")
+      end
 
       it '支出額がないと登録できないこと' do
         @expence_debt_form.price = nil
@@ -34,6 +40,12 @@ RSpec.describe ExpenceDebtForm, type: :model do
         @expence_debt_form.price = 'テスト'
         @expence_debt_form.valid?
         expect(@expence_debt_form.errors.full_messages).to include("Price is not a number")
+      end
+      
+      it '支出額がマイナスの値だと登録できない' do
+        @expence_debt_form.price = -1
+        @expence_debt_form.valid?
+        expect(@expence_debt_form.errors.full_messages).to include("Price must be greater than 0")
       end
 
       it '紐づくイベント情報がないと登録できないこと' do

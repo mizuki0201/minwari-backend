@@ -25,6 +25,12 @@ RSpec.describe Debt, type: :model do
         @debt.valid?
         expect(@debt.errors.full_messages).to include("Price is not a number")
       end
+      
+      it '借金額がマイナスの値だと登録できないこと' do
+        @debt.price = -1
+        @debt.valid?
+        expect(@debt.errors.full_messages).to include("Price must be greater than 0")
+      end
 
       it '支払った側（from_id）がないと登録できないこと' do
         @debt.from_id = ''
