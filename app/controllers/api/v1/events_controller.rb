@@ -4,7 +4,7 @@ class Api::V1::EventsController < ApplicationController
 
   def index
     group = Group.find(params[:group_id])
-    members = group.users.select('id', 'name')
+    members = group.get_members
     group_with_members = {id: group.id, name: group.name, members: members}
 
     events = group.events
@@ -21,7 +21,7 @@ class Api::V1::EventsController < ApplicationController
   def create
     event = Event.new(event_params)
     if event.save
-      render json: {id: event.id, title: event.title, description: event.description }
+      render json: event
     else
       render json: event.errors
     end

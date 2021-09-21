@@ -18,16 +18,12 @@ class Api::V1::UsersController < ApplicationController
 
     if !user
       render json: { status: 302, data: {} }
-    elsif already_friend(user.id)
+    elsif user.already_friend?(current_api_v1_user.id)
       render json: { status: 301, data: {id: user.id, name: user.name} }
     elsif user.id != current_api_v1_user.id
       render json: { status: 200, data: {id: user.id, name: user.name} }
     else
       render json: { status: 302, data: {} }
     end
-  end
-
-  def already_friend(user_id)
-    Friend.exists?(from_id: current_api_v1_user.id, to_id: user_id) || Friend.exists?(from_id: user_id, to_id: current_api_v1_user.id)
   end
 end

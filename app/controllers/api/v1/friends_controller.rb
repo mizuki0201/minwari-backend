@@ -2,20 +2,10 @@ class Api::V1::FriendsController < ApplicationController
   before_action :authenticate_api_v1_user!
   
   def index
-    friends_from = Friend.where(from_id: current_api_v1_user)
-    friends_to = Friend.where(to_id: current_api_v1_user)
+    friends_from = Friend.get_friends_with_from_id(current_api_v1_user)
+    friends_to = Friend.get_friends_with_to_id(current_api_v1_user)
+    friends = friends_from + friends_to
 
-    friends = []
-    friends_from.each do |friend|
-      user_from = User.find(friend[:to_id])
-      friends << {id: user_from.id, user_id: user_from.user_id, name: user_from.name}
-    end
-    
-    friends_to.each do |friend|
-      user_to = User.find(friend[:from_id])
-      friends << {id: user_to.id, user_id: user_to.user_id, name: user_to.name}
-    end
-    
     render json: friends
   end
 

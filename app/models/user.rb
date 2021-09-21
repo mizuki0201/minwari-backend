@@ -24,4 +24,9 @@ class User < ActiveRecord::Base
     validates :email, format: { with: VALID_EMAIL_REGEX }
     validates :phone, :user_id, uniqueness: { case_sensitive: true }
   end
+
+  # すでに友達かどうかを判定する
+  def already_friend?(login_user_id)
+    Friend.exists?(from_id: login_user_id, to_id: self.id) || Friend.exists?(from_id: self.id, to_id: login_user_id)
+  end
 end
